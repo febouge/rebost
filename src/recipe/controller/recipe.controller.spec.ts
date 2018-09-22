@@ -10,8 +10,4 @@ describe('Recipe Controller', () => {
       providers: [RecipeService],
     }).compile();
   });
-  it('should be defined', () => {
-    const controller: RecipeController = module.get<RecipeController>(RecipeController);
-    expect(controller.root()).toBe('Hello from recipe!');
-  });
 });

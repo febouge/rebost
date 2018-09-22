@@ -34,7 +34,7 @@ export class InitialMigration1536401384131 implements MigrationInterface {
       tagid integer REFERENCES tag (id),
       PRIMARY KEY (recipeid, tagid)
     )`);
-    await queryRunner.query(`CREATE TABLE recipeingredient (
+    await queryRunner.query(`CREATE TABLE recipe_ingredient (
       id integer PRIMARY KEY,
       quantity float NOT NULL,
       recipeid integer REFERENCES recipe (id),

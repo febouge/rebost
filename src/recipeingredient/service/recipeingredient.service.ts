@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Recipe } from '../entity/recipe.entity';
+import { RecipeIngredient } from '../entity/recipeingredient.entity';
 import { Repository, DeleteResult } from 'typeorm';
 
 @Injectable()
-export class RecipeService {
+export class RecipeIngredientService {
 
   constructor(
-    @InjectRepository(Recipe)
-    private readonly recipeRepository: Repository<Recipe>,
+    @InjectRepository(RecipeIngredient)
+    private readonly recipeRepository: Repository<RecipeIngredient>,
   ) {}
 
-  async getById(id: number): Promise<Recipe> {
+  async getById(id: number): Promise<RecipeIngredient> {
     return await this.recipeRepository.findOne(id);
   }
 
-  async save(recipe: Recipe): Promise<Recipe> {
+  async save(recipe: RecipeIngredient): Promise<RecipeIngredient> {
     return await this.recipeRepository.save(recipe);
   }
 
@@ -23,7 +23,7 @@ export class RecipeService {
     return await this.recipeRepository.delete(id);
   }
 
-  async findAll(): Promise<Recipe[]> {
+  async findAll(): Promise<RecipeIngredient[]> {
     return await this.recipeRepository.find();
   }
 }
