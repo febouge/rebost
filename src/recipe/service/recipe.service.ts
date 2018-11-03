@@ -24,6 +24,8 @@ export class RecipeService {
   }
 
   async findAll(): Promise<Recipe[]> {
-    return await this.recipeRepository.find();
+    return await this.recipeRepository.find({
+      relations: ["tags", "recipeIngredients"]
+    });
   }
 }

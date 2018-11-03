@@ -2,7 +2,7 @@ import { Get, Controller, Param, Post, Delete, Body } from '@nestjs/common';
 import { Recipe } from '../entity/recipe.entity';
 import { RecipeService } from '../service/recipe.service';
 
-@Controller('recipe')
+@Controller('recipes')
 export class RecipeController {
 
   constructor(private readonly recipeService: RecipeService) {}
