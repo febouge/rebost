@@ -15,11 +15,15 @@ export class RecipeIngredient extends BaseEntity {
   @JoinColumn({ name: 'recipeId', referencedColumnName: 'id'})
   recipe: Recipe;
 
-  @ManyToOne(type => Unit)
+  @ManyToOne(type => Unit, {
+    cascade: true
+  })
   @JoinColumn({ name: 'unitId', referencedColumnName: 'id'})
   unit: Unit;
 
-  @ManyToOne(type => Ingredient)
+  @ManyToOne(type => Ingredient, {
+    cascade: true
+  })
   @JoinColumn({ name: 'ingredientId', referencedColumnName: 'id'})
   ingredient: Ingredient;
 }
