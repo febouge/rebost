@@ -16,7 +16,7 @@ image: node:latest
 cache:
   paths:
   - node_modules/
-   
+
 stages:
   - build
   - test
@@ -28,4 +28,4 @@ build:
 
 test:
   stage: test
-  script: npm test
+  script: npm run test:cov
