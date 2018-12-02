@@ -13,18 +13,18 @@ export class IngredientService implements BaseService<Ingredient> {
   ) {}
 
   async getById(id: number): Promise<Ingredient> {
-    return await this.ingredientRepository.findOne(id);
+    return this.ingredientRepository.findOne(id);
   }
 
   async save(ingredient: Ingredient): Promise<Ingredient> {
-    return await this.ingredientRepository.save(ingredient);
+    return this.ingredientRepository.save(ingredient);
   }
 
   async delete(id: number): Promise<DeleteResult> {
-    return await this.ingredientRepository.delete(id);
+    return this.ingredientRepository.delete(id);
   }
 
   async findAll(): Promise<Ingredient[]> {
-    return await this.ingredientRepository.find();
+    return this.ingredientRepository.find();
   }
 }

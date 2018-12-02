@@ -5,10 +5,21 @@ import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('IngredientService', () => {
-  let findResult = [new Ingredient()];
+  const ingredient: Ingredient = {
+    id: 1,
+    name: 'Test ingredient',
+    allergens: []
+  };
+  const deleteResult: DeleteResult = {
+    raw: null
+  };
+  let findResult = [ingredient];
   let ingredientService: IngredientService;
   let mockRepository = {
-    find: () => findResult
+    find: () => findResult,
+    findOne: () => ingredient,
+    save: () => ingredient,
+    delete: () => deleteResult
   };
 
   beforeAll(async () => {
@@ -31,35 +42,21 @@ describe('IngredientService', () => {
     });
   });
 
-  // describe('getById', () => {
-  //   it('should return an ingredients', async () => {
-  //     const id = 1;
-  //     const result = new Ingredient();
-  //     result.id = 1;
-  //     jest.spyOn(ingredientRepository, 'findOne').mockImplementation(id => result);
-  //
-  //     expect(await ingredientService.getById(id)).toBe(result);
-  //   });
-  // });
-  //
-  // describe('save', () => {
-  //   it('should save an ingredient', async () => {
-  //     const id = 1;
-  //     const result = new Ingredient();
-  //     result.id = 1;
-  //     jest.spyOn(ingredientRepository, 'save').mockImplementation(ingredient => result);
-  //
-  //     expect(await ingredientService.save(result)).toBe(result);
-  //   });
-  // });
-  //
-  // describe('delete', () => {
-  //   it('should delete an ingredient', async () => {
-  //     const id = 1;
-  //     const result = new DeleteResult();
-  //     jest.spyOn(ingredientRepository, 'delete').mockImplementation(ingredient => result);
-  //
-  //     expect(await ingredientService.delete(id)).toBe(result);
-  //   });
-  // });
+  describe('getById', () => {
+    it('should return an ingredient', async () => {
+      expect(await ingredientService.getById(1)).toBe(ingredient);
+    });
+  });
+
+  describe('save', () => {
+    it('should save an ingredient', async () => {
+      expect(await ingredientService.save(ingredient)).toBe(ingredient);
+    });
+  });
+
+  describe('delete', () => {
+    it('should delete an ingredient', async () => {
+      expect(await ingredientService.delete(1)).toBe(deleteResult);
+    });
+  });
 });
