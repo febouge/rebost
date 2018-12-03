@@ -7,10 +7,10 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 describe('AllergenService', () => {
   const allergen: Allergen = {
     id: 1,
-    name: 'Test allergen'
+    name: 'Test allergen',
   };
   const deleteResult: DeleteResult = {
-    raw: null
+    raw: null,
   };
   let findResult = [allergen];
   let allergenService: AllergenService;
@@ -18,7 +18,7 @@ describe('AllergenService', () => {
     find: () => findResult,
     findOne: () => allergen,
     save: () => allergen,
-    delete: () => deleteResult
+    delete: () => deleteResult,
   };
 
   beforeAll(async () => {
@@ -28,7 +28,7 @@ describe('AllergenService', () => {
         {
           provide: getRepositoryToken(Allergen),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 

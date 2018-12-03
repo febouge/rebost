@@ -13,7 +13,7 @@ describe('Recipe Controller', () => {
     name: 'Test Recipe',
     instructions: 'Just for test',
     recipeIngredients: [],
-    tags: []
+    tags: [],
   };
   const mockRepository = {};
 
@@ -25,7 +25,7 @@ describe('Recipe Controller', () => {
         {
           provide: getRepositoryToken(Recipe),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 
@@ -42,7 +42,6 @@ describe('Recipe Controller', () => {
     });
   });
 
-
   describe('delete', () => {
     it('should delete', async () => {
       const result = new DeleteResult();
@@ -52,7 +51,6 @@ describe('Recipe Controller', () => {
     });
   });
 
-
   describe('save', () => {
     it('should save', async () => {
       jest.spyOn(recipeService, 'save').mockImplementation(() => recipeMock);
@@ -60,7 +58,6 @@ describe('Recipe Controller', () => {
       expect(await recipeController.save(recipeMock)).toBe(recipeMock);
     });
   });
-
 
   describe('find by id', () => {
     it('should return an recipe', async () => {

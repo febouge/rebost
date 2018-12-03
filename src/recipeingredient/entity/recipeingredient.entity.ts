@@ -7,23 +7,22 @@ import { Recipe } from '../../recipe/entity/recipe.entity';
 
 @Entity('recipe_ingredient')
 export class RecipeIngredient extends BaseEntity {
-
   @Column('float')
   quantity: number;
 
   @ManyToOne(type => Recipe, recipe => recipe.recipeIngredients)
-  @JoinColumn({ name: 'recipeId', referencedColumnName: 'id'})
+  @JoinColumn({ name: 'recipeId', referencedColumnName: 'id' })
   recipe: Recipe;
 
   @ManyToOne(type => Unit, {
-    cascade: true
+    cascade: true,
   })
-  @JoinColumn({ name: 'unitId', referencedColumnName: 'id'})
+  @JoinColumn({ name: 'unitId', referencedColumnName: 'id' })
   unit: Unit;
 
   @ManyToOne(type => Ingredient, {
-    cascade: true
+    cascade: true,
   })
-  @JoinColumn({ name: 'ingredientId', referencedColumnName: 'id'})
+  @JoinColumn({ name: 'ingredientId', referencedColumnName: 'id' })
   ingredient: Ingredient;
 }

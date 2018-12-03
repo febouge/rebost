@@ -13,10 +13,10 @@ describe('RecipeIngredientService', () => {
     quantity: 50,
     recipe: new Recipe(),
     unit: new Unit(),
-    ingredient: new Ingredient()
+    ingredient: new Ingredient(),
   };
   const deleteResult: DeleteResult = {
-    raw: null
+    raw: null,
   };
   let findResult = [recipeingredient];
   let recipeingredientService: RecipeIngredientService;
@@ -24,7 +24,7 @@ describe('RecipeIngredientService', () => {
     find: () => findResult,
     findOne: () => recipeingredient,
     save: () => recipeingredient,
-    delete: () => deleteResult
+    delete: () => deleteResult,
   };
 
   beforeAll(async () => {
@@ -34,11 +34,13 @@ describe('RecipeIngredientService', () => {
         {
           provide: getRepositoryToken(RecipeIngredient),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 
-    recipeingredientService = module.get<RecipeIngredientService>(RecipeIngredientService);
+    recipeingredientService = module.get<RecipeIngredientService>(
+      RecipeIngredientService,
+    );
   });
 
   describe('findAll', () => {
@@ -55,7 +57,9 @@ describe('RecipeIngredientService', () => {
 
   describe('save', () => {
     it('should save an recipeingredient', async () => {
-      expect(await recipeingredientService.save(recipeingredient)).toBe(recipeingredient);
+      expect(await recipeingredientService.save(recipeingredient)).toBe(
+        recipeingredient,
+      );
     });
   });
 

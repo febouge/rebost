@@ -11,8 +11,8 @@ describe('Ingredient Controller', () => {
   let mockRepository = {};
   const ingredientMock: Ingredient = {
     id: 1,
-    name: "Tempeh",
-    allergens: []
+    name: 'Tempeh',
+    allergens: [],
   };
 
   beforeAll(async () => {
@@ -23,23 +23,24 @@ describe('Ingredient Controller', () => {
         {
           provide: getRepositoryToken(Ingredient),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 
     ingredientService = module.get<IngredientService>(IngredientService);
-    ingredientController = module.get<IngredientController>(IngredientController);
+    ingredientController = module.get<IngredientController>(
+      IngredientController,
+    );
   });
 
   describe('findAll', () => {
     it('should return an array of ingredients', async () => {
-      const result = ['test'];
+      const result = [ingredientMock];
       jest.spyOn(ingredientService, 'findAll').mockImplementation(() => result);
 
       expect(await ingredientController.findAll()).toBe(result);
     });
   });
-
 
   describe('delete', () => {
     it('should delete', async () => {
@@ -50,19 +51,23 @@ describe('Ingredient Controller', () => {
     });
   });
 
-
   describe('save', () => {
     it('should save', async () => {
-      jest.spyOn(ingredientService, 'save').mockImplementation(() => ingredientMock);
+      jest
+        .spyOn(ingredientService, 'save')
+        .mockImplementation(() => ingredientMock);
 
-      expect(await ingredientController.save(ingredientMock)).toBe(ingredientMock);
+      expect(await ingredientController.save(ingredientMock)).toBe(
+        ingredientMock,
+      );
     });
   });
 
-
   describe('find by id', () => {
     it('should return an ingredient', async () => {
-      jest.spyOn(ingredientService, 'getById').mockImplementation(() => ingredientMock);
+      jest
+        .spyOn(ingredientService, 'getById')
+        .mockImplementation(() => ingredientMock);
 
       expect(await ingredientController.getById(1)).toBe(ingredientMock);
     });

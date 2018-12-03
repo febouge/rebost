@@ -5,7 +5,6 @@ import { Repository, DeleteResult } from 'typeorm';
 
 @Injectable()
 export class RecipeIngredientService {
-
   constructor(
     @InjectRepository(RecipeIngredient)
     private readonly recipeRepository: Repository<RecipeIngredient>,
@@ -25,7 +24,7 @@ export class RecipeIngredientService {
 
   async findAll(): Promise<RecipeIngredient[]> {
     return await this.recipeRepository.find({
-      relations: ["unit", "ingredient"]
+      relations: ['unit', 'ingredient'],
     });
   }
 }

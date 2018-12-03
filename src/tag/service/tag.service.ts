@@ -6,7 +6,6 @@ import { Tag } from '../entity/tag.entity';
 
 @Injectable()
 export class TagService implements BaseService<Tag> {
-
   constructor(
     @InjectRepository(Tag)
     private readonly tagRepository: Repository<Tag>,

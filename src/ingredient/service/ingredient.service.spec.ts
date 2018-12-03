@@ -8,10 +8,10 @@ describe('IngredientService', () => {
   const ingredient: Ingredient = {
     id: 1,
     name: 'Test ingredient',
-    allergens: []
+    allergens: [],
   };
   const deleteResult: DeleteResult = {
-    raw: null
+    raw: null,
   };
   let findResult = [ingredient];
   let ingredientService: IngredientService;
@@ -19,7 +19,7 @@ describe('IngredientService', () => {
     find: () => findResult,
     findOne: () => ingredient,
     save: () => ingredient,
-    delete: () => deleteResult
+    delete: () => deleteResult,
   };
 
   beforeAll(async () => {
@@ -29,7 +29,7 @@ describe('IngredientService', () => {
         {
           provide: getRepositoryToken(Ingredient),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 

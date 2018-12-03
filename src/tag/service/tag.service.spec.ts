@@ -7,10 +7,10 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 describe('TagService', () => {
   const tag: Tag = {
     id: 1,
-    name: 'Test tag'
+    name: 'Test tag',
   };
   const deleteResult: DeleteResult = {
-    raw: null
+    raw: null,
   };
   let findResult = [tag];
   let tagService: TagService;
@@ -18,7 +18,7 @@ describe('TagService', () => {
     find: () => findResult,
     findOne: () => tag,
     save: () => tag,
-    delete: () => deleteResult
+    delete: () => deleteResult,
   };
 
   beforeAll(async () => {
@@ -28,7 +28,7 @@ describe('TagService', () => {
         {
           provide: getRepositoryToken(Tag),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 

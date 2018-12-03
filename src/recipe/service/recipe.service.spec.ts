@@ -10,10 +10,10 @@ describe('RecipeService', () => {
     name: 'Test recipe',
     instructions: 'Just add this test to a bowl',
     recipeIngredients: [],
-    tags: []
+    tags: [],
   };
   const deleteResult: DeleteResult = {
-    raw: null
+    raw: null,
   };
   let findResult = [recipe];
   let recipeService: RecipeService;
@@ -21,7 +21,7 @@ describe('RecipeService', () => {
     find: () => findResult,
     findOne: () => recipe,
     save: () => recipe,
-    delete: () => deleteResult
+    delete: () => deleteResult,
   };
 
   beforeAll(async () => {
@@ -31,7 +31,7 @@ describe('RecipeService', () => {
         {
           provide: getRepositoryToken(Recipe),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 

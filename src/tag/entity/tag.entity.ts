@@ -3,8 +3,6 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Tag extends BaseEntity {
-
   @Column({ length: 100 })
   name: string;
-
 }

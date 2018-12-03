@@ -6,7 +6,6 @@ import { DeleteResult } from 'typeorm';
 
 @Controller('recipes')
 export class RecipeController implements BaseController<Recipe> {
-
   constructor(private readonly recipeService: RecipeService) {}
 
   @Get(':id')

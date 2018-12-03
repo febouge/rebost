@@ -6,7 +6,6 @@ import { Allergen } from '../entity/allergen.entity';
 
 @Injectable()
 export class AllergenService implements BaseService<Allergen> {
-
   constructor(
     @InjectRepository(Allergen)
     private readonly allergenRepository: Repository<Allergen>,

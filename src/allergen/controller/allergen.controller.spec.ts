@@ -11,7 +11,7 @@ describe('Allergen Controller', () => {
   let mockRepository = {};
   const allergenMock: Allergen = {
     id: 1,
-    name: "Sulfure"
+    name: 'Sulfure',
   };
 
   beforeAll(async () => {
@@ -22,7 +22,7 @@ describe('Allergen Controller', () => {
         {
           provide: getRepositoryToken(Allergen),
           useValue: mockRepository,
-        }
+        },
       ],
     }).compile();
 
@@ -32,13 +32,12 @@ describe('Allergen Controller', () => {
 
   describe('findAll', () => {
     it('should return an array of allergens', async () => {
-      const result = ['test'];
+      const result = [allergenMock];
       jest.spyOn(allergenService, 'findAll').mockImplementation(() => result);
 
       expect(await allergenController.findAll()).toBe(result);
     });
   });
-
 
   describe('delete', () => {
     it('should delete', async () => {
@@ -49,19 +48,21 @@ describe('Allergen Controller', () => {
     });
   });
 
-
   describe('save', () => {
     it('should save', async () => {
-      jest.spyOn(allergenService, 'save').mockImplementation(() => allergenMock);
+      jest
+        .spyOn(allergenService, 'save')
+        .mockImplementation(() => allergenMock);
 
       expect(await allergenController.save(allergenMock)).toBe(allergenMock);
     });
   });
 
-
   describe('find by id', () => {
     it('should return an allergen', async () => {
-      jest.spyOn(allergenService, 'getById').mockImplementation(() => allergenMock);
+      jest
+        .spyOn(allergenService, 'getById')
+        .mockImplementation(() => allergenMock);
 
       expect(await allergenController.getById(1)).toBe(allergenMock);
     });

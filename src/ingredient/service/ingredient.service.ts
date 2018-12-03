@@ -6,7 +6,6 @@ import { Ingredient } from '../entity/ingredient.entity';
 
 @Injectable()
 export class IngredientService implements BaseService<Ingredient> {
-
   constructor(
     @InjectRepository(Ingredient)
     private readonly ingredientRepository: Repository<Ingredient>,

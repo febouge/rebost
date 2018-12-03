@@ -3,7 +3,6 @@ import { BaseEntity } from '../entity/base.entity';
 import { DeleteResult } from 'typeorm';
 
 export interface BaseService<T extends BaseEntity> {
-
   getById(id: number): Promise<T>;
 
   save(entity: T): Promise<T>;
@@ -11,5 +10,4 @@ export interface BaseService<T extends BaseEntity> {
   delete(id: number): Promise<DeleteResult>;
 
   findAll(): Promise<Array<T>>;
-
 }

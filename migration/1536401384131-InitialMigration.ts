@@ -1,7 +1,6 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class InitialMigration1536401384131 implements MigrationInterface {
-
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.query(`CREATE TABLE tag (
       id integer PRIMARY KEY,
@@ -53,5 +52,4 @@ export class InitialMigration1536401384131 implements MigrationInterface {
     await queryRunner.query(`DROP TABLE ingredient`);
     await queryRunner.query(`DROP TABLE recipe`);
   }
-
 }

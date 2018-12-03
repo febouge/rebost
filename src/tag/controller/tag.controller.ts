@@ -1,28 +1,30 @@
 import { Get, Controller, Body, Param, Delete, Post } from '@nestjs/common';
 import { TagService } from '../service/tag.service';
 import { Tag } from '../entity/tag.entity';
+import { BaseController } from '../../base/controller/base.controller';
+import { DeleteResult } from 'typeorm';
 
 @Controller('tag')
-export class TagController {
+export class TagController implements BaseController<Tag> {
   constructor(private readonly tagService: TagService) {}
 
   @Get(':id')
-  async getTag(@Param('id') id): Promise<Tag> {
+  async getById(@Param('id') id): Promise<Tag> {
     return this.tagService.getById(id);
   }
 
   @Post()
-  async saveTag(@Body() tag: Tag): Promise<Tag> {
+  async save(@Body() tag: Tag): Promise<Tag> {
     return this.tagService.save(tag);
   }
 
   @Delete(':id')
-  async deleteTag(@Param('id') id): Promise<Tag> {
-    return this.tagService.getById(id);
+  async delete(@Param('id') id): Promise<DeleteResult> {
+    return this.tagService.delete(id);
   }
 
   @Get('')
-  async getTags(): Promise<Tag[]> {
+  async findAll(): Promise<Tag[]> {
     return this.tagService.findAll();
   }
 }

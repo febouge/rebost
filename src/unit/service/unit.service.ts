@@ -6,7 +6,6 @@ import { Unit } from '../entity/unit.entity';
 
 @Injectable()
 export class UnitService implements BaseService<Unit> {
-
   constructor(
     @InjectRepository(Unit)
     private readonly unitRepository: Repository<Unit>,
