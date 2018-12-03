@@ -1,29 +1,31 @@
 import { Get, Controller, Param, Post, Delete, Body } from '@nestjs/common';
 import { Recipe } from '../entity/recipe.entity';
 import { RecipeService } from '../service/recipe.service';
+import { BaseController } from '../../base/controller/base.controller';
+import { DeleteResult } from 'typeorm';
 
 @Controller('recipes')
-export class RecipeController {
+export class RecipeController implements BaseController<Recipe> {
 
   constructor(private readonly recipeService: RecipeService) {}
 
   @Get(':id')
-  async getRecipe(@Param('id') id): Promise<Recipe> {
+  async getById(@Param('id') id): Promise<Recipe> {
     return this.recipeService.getById(id);
   }
 
   @Post()
-  async saveRecipe(@Body() recipe: Recipe): Promise<Recipe> {
+  async save(@Body() recipe: Recipe): Promise<Recipe> {
     return this.recipeService.save(recipe);
   }
 
   @Delete(':id')
-  async deleteRecipe(@Param('id') id): Promise<Recipe> {
-    return this.recipeService.getById(id);
+  async delete(@Param('id') id): Promise<DeleteResult> {
+    return this.recipeService.delete(id);
   }
 
   @Get('')
-  async getRecipes(): Promise<Recipe[]> {
+  async findAll(): Promise<Recipe[]> {
     return this.recipeService.findAll();
   }
 }
