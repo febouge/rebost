@@ -6,10 +6,34 @@ image: node:latest
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
-# services:
+services:
 #   - mysql:latest
 #   - redis:latest
-#   - postgres:latest
+  - postgres:latest
+
+variables:
+  # Configure postgres service (https://hub.docker.com/_/postgres/)
+  POSTGRES_HOST: localhost
+  POSTGRES_DB: custom_db
+  POSTGRES_USER: custom_user
+  POSTGRES_PASSWORD: custom_pass
+
+before_script:
+  - export DB_HOST=$POSTGRES_HOST
+  - export DB_USER=$POSTGRES_USER
+  - export DB_PASS=$POSTGRES_PASSWORD
+  - export DB_SCHEMA=$POSTGRES_DB
+  - export TYPEORM_CONNECTION=postgres
+  - export TYPEORM_HOST=$POSTGRES_HOST
+  - export TYPEORM_USERNAME=$POSTGRES_USER
+  - export TYPEORM_PASSWORD=$POSTGRES_PASSWORD
+  - export TYPEORM_DATABASE=$POSTGRES_DB
+  - export TYPEORM_PORT=5432
+  - export TYPEORM_SYNCHRONIZE=true
+  - export TYPEORM_ENTITIES=src/**/**.entity{.ts,.js}
+  - export TYPEORM_MIGRATIONS=./migration/*.ts
+  - export TYPEORM_MIGRATIONS_DIR=migration
+
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -24,8 +48,11 @@ stages:
 
 build:
   stage: build
-  script: npm install
+  script:
+    - npm install
 
 test:
   stage: test
-  script: npm run test:cov
+  script:
+    - npm run test:cov
+    - npm run test:e2e
