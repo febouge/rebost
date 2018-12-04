@@ -46,13 +46,17 @@ stages:
   - test
   - deploy
 
-build:
+install_dependencies:
   stage: build
   script:
     - npm install
 
-test:
+unit_tests:
   stage: test
   script:
     - npm run test:cov
+
+e2e_tests:
+  stage: test
+  script:
     - npm run test:e2e
