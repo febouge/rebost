@@ -4,7 +4,7 @@ import { Tag } from '../entity/tag.entity';
 import { BaseController } from '../../base/controller/base.controller';
 import { DeleteResult } from 'typeorm';
 
-@Controller('tag')
+@Controller('tags')
 export class TagController implements BaseController<Tag> {
   constructor(private readonly tagService: TagService) {}
 

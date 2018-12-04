@@ -3,6 +3,6 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Unit extends BaseEntity {
-  @Column({ length: 100 })
+  @Column({ length: 100, unique: true })
   name: string;
 }

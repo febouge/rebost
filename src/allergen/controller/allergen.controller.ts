@@ -4,7 +4,7 @@ import { Allergen } from '../entity/allergen.entity';
 import { BaseController } from 'base/controller/base.controller';
 import { DeleteResult } from '../../../node_modules/typeorm';
 
-@Controller('allergen')
+@Controller('allergens')
 export class AllergenController implements BaseController<Allergen> {
   constructor(private readonly allergenService: AllergenService) {}
 

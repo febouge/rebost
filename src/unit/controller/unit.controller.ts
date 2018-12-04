@@ -4,7 +4,7 @@ import { Unit } from '../entity/unit.entity';
 import { BaseController } from '../../base/controller/base.controller';
 import { DeleteResult } from 'typeorm';
 
-@Controller('unit')
+@Controller('units')
 export class UnitController implements BaseController<Unit> {
   constructor(private readonly unitService: UnitService) {}
 
@@ -15,7 +15,7 @@ export class UnitController implements BaseController<Unit> {
 
   @Post()
   async save(@Body() unit: Unit): Promise<Unit> {
-    return this.unitService.save(unit);
+      return this.unitService.save(unit);
   }
 
   @Delete(':id')

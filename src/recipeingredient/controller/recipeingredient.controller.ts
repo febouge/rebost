@@ -4,7 +4,7 @@ import { RecipeIngredientService } from '../service/recipeingredient.service';
 import { BaseController } from '../../base/controller/base.controller';
 import { DeleteResult } from 'typeorm';
 
-@Controller('recipeingredient')
+@Controller('recipeingredients')
 export class RecipeIngredientController
   implements BaseController<RecipeIngredient> {
   constructor(

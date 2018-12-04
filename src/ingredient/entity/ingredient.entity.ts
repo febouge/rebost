@@ -4,7 +4,7 @@ import { Entity, Column, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class Ingredient extends BaseEntity {
-  @Column({ length: 100 })
+  @Column({ length: 100, unique: true })
   name: string;
 
   @ManyToMany(type => Allergen)

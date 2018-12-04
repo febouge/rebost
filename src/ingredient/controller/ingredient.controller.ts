@@ -4,7 +4,7 @@ import { Ingredient } from '../entity/ingredient.entity';
 import { BaseController } from 'base/controller/base.controller';
 import { DeleteResult } from 'typeorm';
 
-@Controller('ingredient')
+@Controller('ingredients')
 export class IngredientController implements BaseController<Ingredient> {
   constructor(private readonly ingredientService: IngredientService) {}
 
