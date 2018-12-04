@@ -25,18 +25,6 @@ describe('UnitController (e2e)', () => {
       .get('/units')
       .expect(200);
   });
-  //
-  // it('/POST /units', () => {
-  //   const unit: Unit = {
-  //     id: null,
-  //     name: 'kilogram'
-  //   };
-  //   return request(app.getHttpServer())
-  //     .post('/units')
-  //     .send(unit)
-  //     .expect(201)
-  //     .expect(unit);
-  // });
 
   afterAll(async () => {
     app.close();
