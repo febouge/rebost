@@ -13,7 +13,7 @@ services:
 
 variables:
   # Configure postgres service (https://hub.docker.com/_/postgres/)
-  POSTGRES_HOST: localhost
+  POSTGRES_HOST: postgres
   POSTGRES_DB: custom_db
   POSTGRES_USER: custom_user
   POSTGRES_PASSWORD: custom_pass
