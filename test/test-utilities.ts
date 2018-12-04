@@ -7,7 +7,7 @@ export function getTestingConnectionConfig(): TypeOrmModuleOptions {
   return {
     type: 'postgres',
     host: process.env.TEST_DB_HOST,
-    port: 5432,
+    port: parseInt(process.env.TEST_DB_PORT,10),
     username: process.env.TEST_DB_USER,
     password: process.env.TEST_DB_PASS,
     database: process.env.TEST_DB_SCHEMA,

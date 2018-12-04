@@ -21,6 +21,7 @@ before_script:
   - export TEST_DB_USER=$POSTGRES_USER
   - export TEST_DB_PASS=$POSTGRES_PASSWORD
   - export TEST_DB_SCHEMA=$POSTGRES_DB
+  - export TEST_DB_PORT=5432
 
 
 # This folder is cached between builds
