@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RecipeModule } from './recipe/recipe.module';
-import { IngredientModule } from './ingredient/ingredient.module';
-import { TagModule } from './tag/tag.module';
-import { AllergenModule } from './allergen/allergen.module';
-import { UnitModule } from './unit/unit.module';
+import { RecipeModule } from './api/recipe/recipe.module';
+import { IngredientModule } from './api/ingredient/ingredient.module';
+import { TagModule } from './api/tag/tag.module';
+import { AllergenModule } from './api/allergen/allergen.module';
+import { UnitModule } from './api/unit/unit.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 require('dotenv').config();

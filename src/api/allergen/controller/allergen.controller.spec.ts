@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AllergenController } from './allergen.controller';
 import { AllergenService } from '../service/allergen.service';
-import { Repository, DeleteResult } from '../../../node_modules/typeorm';
+import { Repository, DeleteResult } from 'typeorm';
 import { Allergen } from '../entity/allergen.entity';
-import { getRepositoryToken } from '../../../node_modules/@nestjs/typeorm';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('Allergen Controller', () => {
   let allergenController: AllergenController;

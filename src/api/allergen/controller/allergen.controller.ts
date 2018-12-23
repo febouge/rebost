@@ -1,8 +1,8 @@
 import { Get, Controller, Body, Param, Delete, Post } from '@nestjs/common';
 import { AllergenService } from '../service/allergen.service';
 import { Allergen } from '../entity/allergen.entity';
-import { BaseController } from 'base/controller/base.controller';
-import { DeleteResult } from '../../../node_modules/typeorm';
+import { BaseController } from '../../base/controller/base.controller';
+import { DeleteResult } from 'typeorm';
 
 @Controller('allergens')
 export class AllergenController implements BaseController<Allergen> {
