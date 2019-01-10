@@ -1,6 +1,6 @@
 import { UnitService } from './unit.service';
 import { Unit } from '../entity/unit.entity';
-import { Repository, DeleteResult } from 'typeorm';
+import { DeleteResult } from 'typeorm';
 import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 

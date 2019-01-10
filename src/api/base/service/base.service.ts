@@ -1,4 +1,3 @@
-import { Injectable } from '@nestjs/common';
 import { BaseEntity } from '../entity/base.entity';
 import { DeleteResult } from 'typeorm';
 

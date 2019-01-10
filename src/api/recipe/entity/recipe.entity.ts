@@ -4,7 +4,6 @@ import {
   ManyToMany,
   OneToMany,
   JoinTable,
-  JoinColumn,
 } from 'typeorm';
 import { BaseEntity } from '../../base/entity/base.entity';
 import { Tag } from '../../tag/entity/tag.entity';

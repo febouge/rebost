@@ -1,6 +1,5 @@
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from '../../base/entity/base.entity';
-import { Tag } from '../../tag/entity/tag.entity';
 import { Unit } from '../../unit/entity/unit.entity';
 import { Ingredient } from '../../ingredient/entity/ingredient.entity';
 import { Recipe } from '../../recipe/entity/recipe.entity';
