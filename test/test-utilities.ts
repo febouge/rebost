@@ -8,7 +8,7 @@ export function getTestingConnectionConfig(): TypeOrmModuleOptions {
     port: parseInt(process.env.TYPEORM_PORT, 10),
     username: process.env.TYPEORM_USERNAME,
     password: process.env.TYPEORM_PASSWORD,
-    database: process.env.TYPEORM_DATABASE.concat('_test'),
+    database: process.env.TYPEORM_DATABASE_TEST,
     entities: ['src/**/**.entity{.ts,.js}'],
     synchronize: true,
     logging: true,
