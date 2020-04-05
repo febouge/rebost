@@ -1,10 +1,4 @@
-import {
-  Entity,
-  Column,
-  ManyToMany,
-  OneToMany,
-  JoinTable,
-} from 'typeorm';
+import { Entity, Column, ManyToMany, OneToMany, JoinTable } from 'typeorm';
 import { BaseEntity } from '../../base/entity/base.entity';
 import { Tag } from '../../tag/entity/tag.entity';
 import { RecipeIngredient } from '../../recipeingredient/entity/recipeingredient.entity';

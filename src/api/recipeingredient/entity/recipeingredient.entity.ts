@@ -9,7 +9,10 @@ export class RecipeIngredient extends BaseEntity {
   @Column('float')
   quantity: number;
 
-  @ManyToOne(type => Recipe, recipe => recipe.recipeIngredients)
+  @ManyToOne(
+    type => Recipe,
+    recipe => recipe.recipeIngredients,
+  )
   @JoinColumn({ name: 'recipeId', referencedColumnName: 'id' })
   recipe: Recipe;
 

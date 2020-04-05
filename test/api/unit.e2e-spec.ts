@@ -13,7 +13,7 @@ describe('UnitController (e2e)', () => {
     const moduleFixture = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forRoot(TestingUtilities.getTestingConnectionConfig()),
-        UnitModule
+        UnitModule,
       ],
     }).compile();
     app = moduleFixture.createNestApplication();
@@ -28,5 +28,5 @@ describe('UnitController (e2e)', () => {
 
   afterAll(async () => {
     app.close();
-  })
+  });
 });

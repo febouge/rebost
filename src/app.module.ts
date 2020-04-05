@@ -7,26 +7,26 @@ import { TagModule } from './api/tag/tag.module';
 import { AllergenModule } from './api/allergen/allergen.module';
 import { UnitModule } from './api/unit/unit.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
-require('dotenv').config();
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT,10),
-      username: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_SCHEMA,
-      entities: ['src/**/**.entity{.ts,.js}'],
-      synchronize: false,
-      logging: true,
-      migrationsTableName: 'custom_migration_table',
-      migrations: ['./migration/*.ts'],
+      host: process.env.TYPEORM_HOST,
+      port: parseInt(process.env.TYPEORM_PORT, 10),
+      username: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_PASSWORD,
+      database: process.env.TYPEORM_DATABASE,
+      entities: [process.env.TYPEORM_ENTITIES],
+      synchronize: Boolean(process.env.TYPEORM_SYNCHRONIZE),
+      logging: Boolean(process.env.TYPEORM_LOGGING),
+      migrationsTableName: process.env.TYPEORM_MIGRATIONS_TABLE_NAME,
+      migrations: [process.env.TYPEORM_MIGRATIONS],
       cli: {
-        migrationsDir: 'migration'
-      }
+        migrationsDir: 'migration',
+      },
     }),
     RecipeModule,
     IngredientModule,
@@ -38,5 +38,5 @@ require('dotenv').config();
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private readonly connection: Connection) {}
+  constructor() {}
 }

@@ -15,7 +15,7 @@ export class UnitController implements BaseController<Unit> {
 
   @Post()
   async save(@Body() unit: Unit): Promise<Unit> {
-      return this.unitService.save(unit);
+    return this.unitService.save(unit);
   }
 
   @Delete(':id')

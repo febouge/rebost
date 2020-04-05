@@ -1,11 +1,5 @@
-# This file is a template, and might need editing before it works on your project.
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
 image: node:latest
 
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
 services:
   - postgres:latest
 
@@ -17,11 +11,17 @@ variables:
   POSTGRES_PASSWORD: custom_pass
 
 before_script:
-  - export TEST_DB_HOST=$POSTGRES_HOST
-  - export TEST_DB_USER=$POSTGRES_USER
-  - export TEST_DB_PASS=$POSTGRES_PASSWORD
-  - export TEST_DB_SCHEMA=$POSTGRES_DB
-  - export TEST_DB_PORT=5432
+  - export TYPEORM_CONNECTION=postgres
+  - export TYPEORM_HOST=$POSTGRES_HOST
+  - export TYPEORM_USERNAME=$POSTGRES_USER
+  - export TYPEORM_PASSWORD=$POSTGRES_PASSWORD
+  - export TYPEORM_DATABASE=$POSTGRES_DB
+  - export TYPEORM_PORT=5432
+  - export TYPEORM_SYNCHRONIZE=true
+  - export TYPEORM_LOGGING=true
+  - export TYPEORM_ENTITIES=src/**/**.entity{.ts,.js}
+  - export TYPEORM_MIGRATIONS_TABLE_NAME=custom_migration_table
+  - export TYPEORM_MIGRATIONS=./migration/*.ts
 
 
 # This folder is cached between builds
